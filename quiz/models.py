@@ -1,11 +1,14 @@
 from django.db import models
 
+# we're creating an abstract model named UpdateCreateDate to use created and updated in the 
+# models that share these properties. The only thing you have to do is inherit this model
+# where you want to use created and updated. See how it's done in Quiz, Question and Option
 class UpdateCreateDate(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        abstract = True
+        abstract = True # to present your abstract model you add abstract = True
 
 
 class Category(models.Model): 
@@ -15,7 +18,7 @@ class Category(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = 'Categories'
+        verbose_name_plural = 'Categories' # we if hadn't defined this, django would present us with Categorys in our Admin Panel
 
     @property
     def quiz_count(self):
