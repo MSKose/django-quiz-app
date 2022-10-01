@@ -17,28 +17,51 @@
 
 ## Overview
 
-This is my first Full-Stack project where I did both the Back-End and the Front-End. Along the way, I got familiarized with the Django Framework. Notions I have learned include authentication, database relations, Class based views and Function based views, Django Template language, and HTMX. 
+This is a Back-End quiz-app project made with Django DRF.
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+<!-- ![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png) -->
+<!-- ![screenshot](./django-quiz-app-gif.gif) -->
+<p align="center">
+  <img src="./django-quiz-app-gif.gif">
+</p>
 
 <h2 id="stack">Stack & Tools</h2>
 
-<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
+
 
 - Django
-- Bootstrap
-- HTML
-- CSS
-- HTMX
-- JavaScript
+- Django Rest Framework
 
 ## Project Structure
 
 ```bash
 .──── django-quiz-app (repo)
 │
-
-
+├── main
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── quiz
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   ├── models.py
+│   ├── serializers.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── README.md
+├── db.sqlite3
+├── django-quiz-app-gif.gif
+├── manage.py
+└── requirements.txt
 ```
 
 ## How To Use 
@@ -64,5 +87,4 @@ $ git clone https://github.com/MSKose/django-quiz-app
 
 ## Contact
 
-- [GitHub](https://github.com/MSKose)
 - [Linkedin](https://www.linkedin.com/in/mustafa-kose-linked/)

@@ -28,3 +28,5 @@ class QuizList(generics.ListAPIView):
 class QuestionList(generics.ListAPIView):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filterset_fields = ['quiz', 'difficulty']

@@ -33,8 +33,8 @@ class QuizSerializer(serializers.ModelSerializer):
         )
 
 
-# we're defining OptionSerializer first since we'll not send this to views.py, rather 
-# we'll use this below in QuestionSerializers
+# we're defining OptionSerializer before QuestionSerializer since we'll not send this to 
+# views.py, rather we'll use this below in QuestionSerializers
 class OptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Option
@@ -44,8 +44,12 @@ class OptionSerializer(serializers.ModelSerializer):
             'is_right'
         )
 
+# the reason we defined OptionSerializer before QuestionSerializer is beacuse we want to 
+# use pass QuestionSerializer to our views and urls and have a nested JSON where our 
+# related options would be nested into our Question JSON and be accessed from there
 class QuestionSerializer(serializers.ModelSerializer):
-    options = OptionSerializer(many=True) # here options is no random variable. we have defined a related_name
+    options = OptionSerializer(many=True) # here options is no random variable. we have defined a related_name in our Option model to refer it in Question model
+    quiz = serializers.StringRelatedField()
 
     class Meta:
         model = Question
@@ -53,6 +57,6 @@ class QuestionSerializer(serializers.ModelSerializer):
             'id',
             'quiz',
             'title',
-            'options',
-            'difficulty'
+            'difficulty',
+            'options'
         )
