@@ -19,8 +19,8 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class QuizSerializer(serializers.ModelSerializer):
 
-    # the following line is important since we don't want to see integers as categories. Instead we want to see something
-    # more human-readable. Make sure you have defined a str methon in your Category model, it won't make sense otherwise
+    # the following line is important since we don't want to see integers as categories. Instead, we want to see something
+    # more human-readable. Make sure you have defined a str method in your Category model, it won't make sense otherwise
     category = serializers.StringRelatedField()
 
     class Meta:
@@ -34,7 +34,7 @@ class QuizSerializer(serializers.ModelSerializer):
 
 
 # we're defining OptionSerializer before QuestionSerializer since we'll not send this to 
-# views.py, rather we'll use this below in QuestionSerializers
+# views.py; rather, we'll use this below in QuestionSerializers
 class OptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Option
@@ -45,10 +45,10 @@ class OptionSerializer(serializers.ModelSerializer):
         )
 
 # the reason we defined OptionSerializer before QuestionSerializer is beacuse we want to 
-# use pass QuestionSerializer to our views and urls and have a nested JSON where our 
-# related options would be nested into our Question JSON and be accessed from there
+# pass QuestionSerializer to our views and urls and have a nested JSON where our related
+# options would be nested into our Question JSON and be accessed from there
 class QuestionSerializer(serializers.ModelSerializer):
-    options = OptionSerializer(many=True) # here options is no random variable. we have defined a related_name in our Option model to refer it in Question model
+    options = OptionSerializer(many=True) # here, options is no random variable. we have defined a related_name in our Option model to refer it in the Question model
     quiz = serializers.StringRelatedField()
 
     class Meta:

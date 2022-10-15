@@ -18,9 +18,9 @@ class Category(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = 'Categories' # we if hadn't defined this, django would present us with Categorys in our Admin Panel
+        verbose_name_plural = 'Categories' # if we hadn't defined this, django would have presented us with Categorys in our Admin Panel and we don't want that really
 
-    # you can either defined quiz_count like self.quiz_set.count() cuz <childModelName>_set refers to the child Quiz model or you 
+    # you can either define quiz_count like self.quiz_set.count() cuz <childModelName>_set refers to the child Quiz model or you 
     # give a related_name to the field you join the fields together. Which is our case here. We have given the related_name 
     # of quizz in our Quiz model and used it here to refer that child Model with self.quizz.count() 
     @property # adding @property here we made quiz_count calleable like a class property; therefore, without the parenthesis. we can just pass quiz_count into fields in serizlizers for instance
@@ -38,7 +38,7 @@ class Quiz(UpdateCreateDate):
     class Meta:
         verbose_name_plural = 'Quizzes'
 
-    # this time we have opted to use it the <childModelName>_set way; therfore the question_set
+    # this time, we have opted to use the <childModelName>_set way; therefore, the question_set
     @property # again, we added @property since we want to use question_count without the parenthesis
     def question_count(self):
         return self.question_set.count()
